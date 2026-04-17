@@ -188,7 +188,14 @@
   .highlight-box { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:28px 32px; font-size:14px; color:rgba(255,255,255,.72); line-height:1.78; }
   .highlight-box strong { color:var(--amber-light); font-weight:500; }
 
-  /* ROADMAP */
+  /* ROADMAP TABS */
+  .roadmap-tabs { display:flex; gap:3px; margin-bottom:40px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:4px; width:fit-content; }
+  .rtab { padding:10px 28px; border-radius:9px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); cursor:pointer; transition:background .2s, color .2s; border:none; background:transparent; }
+  .rtab.active { background:var(--amber); color:var(--ink); font-weight:700; }
+  .rtab:hover:not(.active) { color:var(--amber); }
+  .roadmap-panel { display:none; }
+  .roadmap-panel.active { display:flex; flex-direction:column; gap:3px; }
+  .roadmap-option-label { display:inline-flex; align-items:center; gap:8px; margin-bottom:24px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; background:rgba(196,130,10,.1); border:1px solid rgba(196,130,10,.25); border-radius:100px; padding:6px 16px; color:var(--amber); width:fit-content; }
   .roadmap { display:flex; flex-direction:column; gap:3px; }
   .phase { display:grid; grid-template-columns:80px 1fr; gap:32px; background:var(--card); border:1px solid var(--border); border-radius:14px; padding:32px; transition:border-color .3s; }
   @media(max-width:640px){ .phase { grid-template-columns:1fr; gap:16px; } }
@@ -201,8 +208,12 @@
   .phase-item::before { content:'◆'; color:var(--amber); font-size:8px; flex-shrink:0; margin-top:4px; }
 
   /* PRICING */
-  .pricing-wrap { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:36px; }
-  @media(max-width:760px){ .pricing-wrap { grid-template-columns:1fr; } }
+  .pricing-wrap { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:36px; }
+  @media(max-width:680px){ .pricing-wrap { grid-template-columns:1fr; } }
+  .price-usd-note { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:28px; }
+  .price-save-badge { display:inline-block; margin-bottom:10px; background:rgba(196,130,10,.15); border:1px solid rgba(196,130,10,.35); border-radius:100px; padding:5px 14px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--amber-light); }
+  .price-then { font-size:12px; color:var(--muted); margin:6px 0 0; font-family:'Outfit',sans-serif; }
+  .price-total-note { font-size:11px; color:rgba(196,130,10,.6); margin-top:4px; font-family:'JetBrains Mono',monospace; letter-spacing:1px; }
   .price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:36px 30px; position:relative; overflow:hidden; }
   .price-card.featured { background:linear-gradient(150deg,rgba(196,130,10,.14) 0%,rgba(196,130,10,.04) 100%); border-color:rgba(196,130,10,.48); }
   .price-card.featured::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--amber),var(--amber-pale),var(--amber)); }
@@ -269,10 +280,8 @@
     <ul class="nav-links">
       <li><a href="#opportunity">Opportunity</a></li>
       <li><a href="#loyalty">Loyalty Engine</a></li>
-      <li><a href="#automations">All Flows</a></li>
-      <li><a href="#campaigns">Campaigns</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#pricing">Investment</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
     </ul>
     <div class="nav-toki"><div class="nav-toki-dot"></div>Toki Partner</div>
   </nav>
@@ -286,11 +295,11 @@
     </div>
     <h1>Turn Every Chapter<br>into <em>Revenue.</em></h1>
     <div class="hero-by">Prepared for SFR Distillery &nbsp;·&nbsp; DigitsUp LLC &nbsp;·&nbsp; 2026</div>
-    <p class="hero-desc">A 90-day engagement to build SFR's full email and SMS retention engine — with the Legendary Club loyalty program at the center. Chapter progressions, Stave milestones, limited-release drops, and a campaign cadence that keeps the list earning between pours.</p>
+    <p class="hero-desc">A 30-day build to wire Klaviyo directly into the Legendary Club — chapter progressions, Stave milestones, referral loops, Wallet Pass, and dormant member reactivation. All 13 flows, built and live.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><span class="val">90</span><span class="lbl">Day Engagement</span></div>
-      <div class="hero-stat"><span class="val">13</span><span class="lbl">Flows Built</span></div>
-      <div class="hero-stat"><span class="val">8</span><span class="lbl">Loyalty Triggers</span></div>
+      <div class="hero-stat"><span class="val">30</span><span class="lbl">Day Build</span></div>
+      <div class="hero-stat"><span class="val">13</span><span class="lbl">Loyalty Flows</span></div>
+      <div class="hero-stat"><span class="val">8</span><span class="lbl">Chapter Tiers</span></div>
       <div class="hero-stat"><span class="val">11+</span><span class="lbl">Years Experience</span></div>
     </div>
   </div>
@@ -301,7 +310,7 @@
   <section id="opportunity">
     <div class="section-label reveal">The Opportunity</div>
     <h2 class="section-h reveal">The Legendary Club Is the<br><em>Most Undermonetized Asset</em> SFR Has.</h2>
-    <p class="section-intro reveal">SFR has already done the hard part — they built a free, gamified loyalty program with genuine community pull and a chapter arc that makes members feel they're on a real journey. The missing piece is the email and SMS infrastructure that drives chapter progression, keeps members purchasing between releases, and makes every Stave milestone feel like forward momentum. That's what DigitsUp — and Toki — sent us here to fix.</p>
+    <p class="section-intro reveal">SFR has already done the hard part — they built a free, gamified loyalty program with genuine community pull and a chapter arc that makes members feel they're on a real journey. The missing piece is the email and SMS infrastructure that drives chapter progression, keeps members purchasing between releases, and makes every Stave milestone feel like forward momentum. That's what DigitsUp — referred by Toki — is here to build.</p>
 
     <div class="opp-grid">
       <div class="opp-card featured-opp reveal">
@@ -326,22 +335,6 @@
             <div><h4>Dormant Member Reactivation</h4><p>Members who joined and went quiet are one well-timed, chapter-aware email away from re-engaging. Their current tier and Stave balance are the hooks — not a generic discount.</p></div>
           </div>
         </div>
-      </div>
-
-      <div class="opp-card reveal">
-        <div class="opp-num">02</div>
-        <h3>Abandoned Revenue Recovery</h3>
-        <p>Browse, cart, and checkout abandonment are the highest-ROI flows in ecommerce. In craft spirits — where the purchase decision is considered — a well-timed sequence recovers 15–25% of lost sessions. SFR is leaving that on the table every day.</p>
-      </div>
-      <div class="opp-card reveal">
-        <div class="opp-num">03</div>
-        <h3>Limited Release Drop Monetization</h3>
-        <p>Batch 001 and 002 sold out fast — but was that revenue fully maximized with structured pre-launch hype, a drop-day SMS, and a post-launch FOMO sequence? Three releases a year, each one treated as a full revenue event.</p>
-      </div>
-      <div class="opp-card reveal">
-        <div class="opp-num">04</div>
-        <h3>Post-Purchase Cross-Sell</h3>
-        <p>A whisky buyer doesn't automatically discover Jacked Chili Liqueur, Trickster's Orange, or Monk's Secret. Post-purchase flows introduce the full catalog in context — with cocktail pairings — and build the multi-SKU household over time.</p>
       </div>
     </div>
   </section>
@@ -379,92 +372,149 @@
         <div class="ch-connector"><div class="ch-connector-line"></div><div class="ch-connector-arrow"></div></div>
         <div class="ch-node lit"><div class="ch-circle">👑</div><div class="ch-name">Legend</div><div class="ch-trigger">Legend recognition + Unwritten tease</div></div>
         <div class="ch-connector"><div class="ch-connector-line"></div><div class="ch-connector-arrow"></div></div>
-        <div class="ch-node"><div class="ch-circle">📖</div><div class="ch-name">Unwritten</div><div class="ch-trigger">For the chosen few</div></div>
+        <div class="ch-node"><div class="ch-circle" style="border-color:rgba(196,130,10,.15);opacity:.45;">📖</div><div class="ch-name" style="opacity:.4;">Unwritten</div><div class="ch-trigger" style="opacity:.35;">For the chosen few</div></div>
       </div>
     </div>
 
-    <div class="section-label reveal" style="margin-bottom:20px;">Loyalty-Specific Flows</div>
+    <div class="section-label reveal" style="margin-bottom:20px;">The 13 Flows We're Building</div>
 
     <div class="loyalty-flows">
 
+      <!-- ONBOARDING -->
       <div class="lflow reveal">
         <div class="lflow-icon">🥾</div>
         <div class="lflow-body">
           <div class="lflow-name">Legendary Club Welcome Series</div>
-          <div class="lflow-trigger">Trigger — New member joins (Wanderer status confirmed via Toki)</div>
-          <div class="lflow-desc">5-email + 1 SMS sequence over 10 days. Opens with the legend arc — the path, the promise, what it means to begin the journey. Introduces Stave earning mechanics, previews what's locked in higher chapters, and drives the first bottle purchase before intent fades. Each email has a purchase behavior exit. This is the single most important flow in the entire suite — and it fires before anything else.</div>
+          <div class="lflow-trigger">Trigger — New member joins as a Wanderer (Toki join event)</div>
+          <div class="lflow-desc">3–5 emails over 10 days. Opens with the legend arc — the path, the promise, what Staves are and how to earn them, what Keys and Collectibles unlock at each chapter. Drives the first bottle purchase before interest fades. Purchase behavior exits at every step. The entry point for the entire program.</div>
         </div>
-        <div class="lflow-badge badge-l1">Phase 1 · Priority</div>
+        <div class="lflow-badge badge-l1">Onboarding</div>
+      </div>
+
+      <!-- STAVE FLOWS -->
+      <div class="lflow reveal">
+        <div class="lflow-icon">⚗️</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Stave Earned Confirmation</div>
+          <div class="lflow-trigger">Trigger — Toki: member earns Staves (purchase, challenge, referral, social action)</div>
+          <div class="lflow-desc">Quick, satisfying confirmation that fires every time a member earns Staves. Shows their updated balance, tells them exactly how close they are to their next Key or Collectible, and names the chapter milestone that's within reach. Keeps the program feeling alive between purchases.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Points</div>
       </div>
 
       <div class="lflow reveal">
-        <div class="lflow-icon">🏆</div>
+        <div class="lflow-icon">⏳</div>
         <div class="lflow-body">
-          <div class="lflow-name">Chapter Level-Up Flow</div>
-          <div class="lflow-trigger">Trigger — Toki event: member advances to a new chapter tier</div>
-          <div class="lflow-desc">One flow, 8 branches — one per chapter tier. Each advancement triggers a 2-touch sequence: an SMS on the day of advancement (immediate congratulations, chapter name called out), then an email within 24 hours that reveals what's newly unlocked, reinforces the narrative of that specific chapter, and issues a CTA tied to the chapter's exact perk set. A Rule Breaker gets a different email than a Maverick. Always. This is what makes the loyalty program feel real.</div>
+          <div class="lflow-name">Stave Balance Reminder</div>
+          <div class="lflow-trigger">Trigger — Toki: member has unspent Staves and no activity in 30 days</div>
+          <div class="lflow-desc">A periodic nudge to members sitting on unspent Staves. Shows their exact balance, what they can redeem right now, and what they're X Staves away from unlocking next. Single CTA. No fluff. The goal is to pull passive earners back into the program loop before they forget they're in it.</div>
         </div>
-        <div class="lflow-badge badge-l1">Phase 1 · Priority</div>
+        <div class="lflow-badge badge-l1">Points</div>
       </div>
 
+      <div class="lflow reveal">
+        <div class="lflow-icon">🔥</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Stave Expiry Warning</div>
+          <div class="lflow-trigger">Trigger — Toki: member's Staves are approaching expiry date</div>
+          <div class="lflow-desc">Urgency-forward single email that fires when Staves are close to expiring. Names the exact number at risk, the exact date they're gone, and gives one clear CTA to redeem before they're lost. This is the highest-open-rate transactional email in any loyalty program — people hate losing things they earned.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Points</div>
+      </div>
+
+      <!-- REDEMPTION FLOWS -->
       <div class="lflow reveal">
         <div class="lflow-icon">🔑</div>
         <div class="lflow-body">
-          <div class="lflow-name">Stave Milestone & Redemption Nudge</div>
-          <div class="lflow-trigger">Trigger — Toki: member reaches 50%, 75%, 100% of next Stave threshold / 7 days unredeemed at 100%</div>
-          <div class="lflow-desc">Three-stage nudge sequence that converts earners into redeemers. At 50%: a progress check-in showing exactly how far they've come and what's waiting. At 75%: urgency build — "you're this close." At 100% unredeemed for 7+ days: a direct, single-CTA redemption prompt showing the specific reward available (bottle discount, experience, collectible). No filler. No padding. Just the nudge that converts passive Stave holders into purchasers.</div>
+          <div class="lflow-name">Key & Collectible Redemption Reminder</div>
+          <div class="lflow-trigger">Trigger — Toki: member has an available Key or Collectible unredeemed for 7+ days</div>
+          <div class="lflow-desc">Softer than the expiry warning — this fires when a member has earned a reward but hasn't claimed it yet. Shows them exactly what's waiting, makes the redemption feel easy, and uses their current chapter to frame why this reward matters at this point in their journey. Converts passive earners into active redeemers.</div>
         </div>
-        <div class="lflow-badge badge-l1">Phase 1 · Priority</div>
-      </div>
-
-      <div class="lflow reveal">
-        <div class="lflow-icon">🥃</div>
-        <div class="lflow-body">
-          <div class="lflow-name">Limited Release Early Access Flow</div>
-          <div class="lflow-trigger">Trigger — New batch release announced; Legendary Club members receive this sequence first, before public announcement</div>
-          <div class="lflow-desc">Three phases: Pre-launch (72 hrs before) — member-exclusive preview with bottle story, production notes, and a "mark your calendar" CTA. Drop-day — SMS fires first (8am), email within 2 hours with a direct purchase link and available stock signal. Post-launch (48 hrs after) — splits by purchaser vs. non-purchaser. Purchasers get a collector confirmation and chapter acknowledgment. Non-purchasers get a last-chance send with remaining inventory count. Built to fire for every batch release — Batch 003 and beyond.</div>
-        </div>
-        <div class="lflow-badge badge-l1">Phase 1 · Priority</div>
-      </div>
-
-      <div class="lflow reveal">
-        <div class="lflow-icon">🎂</div>
-        <div class="lflow-body">
-          <div class="lflow-name">Member Anniversary Flow</div>
-          <div class="lflow-trigger">Trigger — 1-year anniversary of Legendary Club join date</div>
-          <div class="lflow-desc">A single, carefully written email that acknowledges how far the member has come on the path. References their current chapter by name. Celebrates the year with a one-time anniversary offer — a Stave bonus, a bottle discount, or an exclusive tasting invitation. In our experience running loyalty programs across DTC brands, member anniversary sends consistently deliver the highest open rates and revenue per recipient of any campaign type. This one gets written with care.</div>
-        </div>
-        <div class="lflow-badge badge-l2">Phase 2</div>
+        <div class="lflow-badge badge-l1">Redemption</div>
       </div>
 
       <div class="lflow reveal">
         <div class="lflow-icon">💎</div>
         <div class="lflow-body">
-          <div class="lflow-name">First Redemption Celebration Flow</div>
-          <div class="lflow-trigger">Trigger — Toki event: member redeems a Key or Collectible for the first time</div>
-          <div class="lflow-desc">The single biggest loyalty behavior gap: members who earn rewards and never redeem them. When a member redeems their first Key or Collectible, a short 2-email sequence fires — acknowledging the redemption by name, reinforcing what it means for their chapter progress, and immediately prompting the next earning opportunity. The goal is to turn one-time redeemers into habitual redeemers — because habitual redeemers are SFR's highest-LTV customer segment.</div>
+          <div class="lflow-name">Redemption Confirmation & Re-Earn Prompt</div>
+          <div class="lflow-trigger">Trigger — Toki: member redeems a Key or Collectible</div>
+          <div class="lflow-desc">Fires the moment a member redeems. Celebrates the action, confirms what they just claimed, shows their remaining Stave balance, and immediately frames the next earning opportunity — what they need to do to earn their next Key. Turns one-time redeemers into habitual redeemers. Habitual redeemers are the highest-LTV segment in any loyalty program.</div>
         </div>
-        <div class="lflow-badge badge-l2">Phase 2</div>
+        <div class="lflow-badge badge-l1">Redemption</div>
       </div>
 
+      <!-- CHAPTER FLOWS -->
+      <div class="lflow reveal">
+        <div class="lflow-icon">🏆</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Chapter Advancement (Level-Up) Flow</div>
+          <div class="lflow-trigger">Trigger — Toki: member advances to a new chapter tier</div>
+          <div class="lflow-desc">The centerpiece of the entire program. One flow, 8 branches — Wanderer through Unwritten. Each advancement triggers an SMS same-day (immediate, by chapter name) followed by an email within 24 hours that reveals what's newly unlocked at that specific tier, reinforces the chapter's narrative identity, and issues a CTA tied to that chapter's exact perks. A Rule Breaker gets a different email than a Rebel gets a different email than a Maverick. Always. This is what makes the Legendary Club feel real instead of like a points card.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Chapter</div>
+      </div>
+
+      <div class="lflow reveal">
+        <div class="lflow-icon">🎯</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Approaching Next Chapter</div>
+          <div class="lflow-trigger">Trigger — Toki: member is within a set Stave threshold of their next chapter tier</div>
+          <div class="lflow-desc">Fires when a member is close to leveling up — "You're X Staves away from becoming a Rule Breaker." Names the specific chapter they're approaching, teases what it unlocks, and gives a direct path to earning those remaining Staves (buy a bottle, complete a challenge, bring a friend). The most purchase-intent-generating flow in the suite after the welcome series.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Chapter</div>
+      </div>
+
+      <!-- REFERRAL FLOWS -->
+      <div class="lflow reveal">
+        <div class="lflow-icon">📨</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Referral Sent</div>
+          <div class="lflow-trigger">Trigger — Toki: member shares their referral link</div>
+          <div class="lflow-desc">Confirmation that fires when a member sends their referral link. Acknowledges the share, reminds them what they earn when the friend converts (Staves + chapter credit), and encourages them to follow up with their contact. Keeps the referral loop warm while the friend is deciding.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Referral</div>
+      </div>
+
+      <div class="lflow reveal">
+        <div class="lflow-icon">🤝</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Referral Completed</div>
+          <div class="lflow-trigger">Trigger — Toki: referred friend makes their first purchase</div>
+          <div class="lflow-desc">Fires to the referrer when their friend converts. Awards Staves, celebrates the moment, and reinforces the behavior — "bring another friend, earn again." Frames referral as part of the chapter journey, not just a one-off incentive. Compounds over time as higher-chapter members have more social proof to leverage.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Referral</div>
+      </div>
+
+      <div class="lflow reveal">
+        <div class="lflow-icon">🥂</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Referred Friend Welcome</div>
+          <div class="lflow-trigger">Trigger — Toki: new member joins via a referral link</div>
+          <div class="lflow-desc">A distinct onboarding path for members who arrived through a referral. Acknowledges who brought them in, gives them a warm intro to the Legendary Club and their starting Stave bonus, and fast-tracks them toward their first earn action. Different tone from the standard welcome series — warmer, more personal, built around the shared connection that brought them in.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Referral</div>
+      </div>
+
+      <!-- WALLET PASS -->
+      <div class="lflow reveal">
+        <div class="lflow-icon">📱</div>
+        <div class="lflow-body">
+          <div class="lflow-name">Wallet Pass Flow</div>
+          <div class="lflow-trigger">Branch 1 — Pass issued: member eligible for Apple/Google Wallet pass · Branch 2 — Pass update: Stave balance or chapter changes on the pass</div>
+          <div class="lflow-desc">Two branches, one flow. Branch 1 fires when a member's Wallet Pass is created — drives installation with a direct deep-link and shows them what the pass does (earn Staves in the tasting room, show at events, always have their chapter status on hand). Branch 2 fires when their balance or tier updates on the pass — a push-style email or SMS that keeps the pass feeling alive. Critical for SFR's physical tasting room: this is the bridge between an in-person visit and the digital loyalty program.</div>
+        </div>
+        <div class="lflow-badge badge-l1">Wallet Pass</div>
+      </div>
+
+      <!-- WIN-BACK -->
       <div class="lflow reveal">
         <div class="lflow-icon">🧊</div>
         <div class="lflow-body">
-          <div class="lflow-name">Dormant Member Reactivation</div>
-          <div class="lflow-trigger">Trigger — Legendary Club member, no purchase or email engagement in 90 days</div>
-          <div class="lflow-desc">Not a generic "we miss you" sequence. This flow is chapter-aware — it references where the member currently sits on the path, what's changed since they went quiet (new releases, new chapters opening, upcoming events), and uses their Stave balance as a specific hook to come back. 3 emails + 1 SMS, timed across 14 days. Members who've invested effort into a chapter don't need a discount to return — they need a reminder that the story isn't finished.</div>
+          <div class="lflow-name">Dormant Member Win-Back</div>
+          <div class="lflow-trigger">Trigger — Toki: Legendary Club member, no purchase or engagement in 60–90 days</div>
+          <div class="lflow-desc">Not a generic "we miss you." This flow is chapter-aware throughout — it names the member's current tier, highlights what's changed since they went quiet (new releases, new challenges, upcoming events), and uses their unspent Stave balance as the re-entry hook. 3 emails + 1 SMS over 14 days. Members who've invested effort into a chapter don't need a discount to return. They need a reminder the story isn't finished.</div>
         </div>
-        <div class="lflow-badge badge-l2">Phase 2</div>
-      </div>
-
-      <div class="lflow reveal">
-        <div class="lflow-icon">📍</div>
-        <div class="lflow-body">
-          <div class="lflow-name">Tasting Room & Event Follow-Up</div>
-          <div class="lflow-trigger">Trigger — Toki event: member attends a tour, tasting, or private event at SFR Distillery</div>
-          <div class="lflow-desc">In-person visits are the highest-intent signal a member can give. After a visit, a 2-email sequence fires: a post-visit recap that delivers cocktail recipes from what they tasted that day (personalized to the visit type), followed 5 days later by a Stave award notification for attending, a push toward the next chapter milestone, and a booking invite for their next experience or for bringing a friend. Converts one-time visitors into the most loyal segment in the program.</div>
-        </div>
-        <div class="lflow-badge badge-l2">Phase 2</div>
+        <div class="lflow-badge badge-l2">Re-Engagement</div>
       </div>
 
     </div>
@@ -502,239 +552,212 @@
         <div class="int-data-item">Stave balance and milestone events trigger automated 3-stage nudge sequences</div>
         <div class="int-data-item">Key and Collectible redemption events fire first-redemption celebration and re-earn flows</div>
         <div class="int-data-item">Member join date used for anniversary flows and cohort-level performance analysis</div>
-        <div class="int-data-item">Event attendance (tours, tastings) logged as Toki events and passed to Klaviyo for the follow-up sequence</div>
-        <div class="int-data-item">Purchase history cross-referenced with chapter tier to identify highest-LTV member cohorts</div>
+        <div class="int-data-item">Member join date used for cohort-level performance analysis and win-back timing</div>
+        <div class="int-data-item">Purchase history cross-referenced with chapter tier to personalize flow copy and redemption CTAs</div>
       </div>
     </div>
   </section>
-
-  <div class="divider"></div>
-
-  <!-- ALL FLOWS -->
-  <section id="automations">
-    <div class="section-label reveal">Full Automation Suite</div>
-    <h2 class="section-h reveal">13 Flows.<br><em>Every Touchpoint, Covered.</em></h2>
-    <p class="section-intro reveal">Beyond the loyalty engine, SFR needs the foundational retention infrastructure that recovers abandoned revenue, builds post-purchase LTV, and keeps the list healthy. These flows run in parallel with the loyalty system — and every flow is chapter-aware where member data is available.</p>
-
-    <div class="flows-list">
-      <div class="flow-row reveal">
-        <div class="flow-name">Browse Abandonment<span>Triggered: product page view, no add-to-cart</span></div>
-        <div class="flow-desc">Re-engages browsers before intent cools. Copy references the specific product viewed — tasting notes, craft story, and Legendary Club Stave earning on purchase. 2–3 emails over 48 hours. Suppressed for members currently inside a loyalty flow.</div>
-        <div class="flow-badge badge-p1">Phase 1</div>
-      </div>
-      <div class="flow-row reveal">
-        <div class="flow-name">Cart Abandonment<span>Triggered: add-to-cart, no checkout started</span></div>
-        <div class="flow-desc">3-touch recovery sequence. Product reminder with craft narrative, Legendary Club member testimonials as social proof, and a Stave earning reminder on touch 3. SMS layer on high-value SKUs (limited releases). Chapter-tier-aware copy if member data is available in Klaviyo profile.</div>
-        <div class="flow-badge badge-p1">Phase 1</div>
-      </div>
-      <div class="flow-row reveal">
-        <div class="flow-name">Checkout Abandonment<span>Triggered: checkout started, no purchase completed</span></div>
-        <div class="flow-desc">Highest-converting abandonment flow — these buyers got furthest down the funnel. 2-email urgency sequence reinforcing free shipping at $125, the specific Stave count they'd earn on this order, and one friction-removal CTA. Direct and fast.</div>
-        <div class="flow-badge badge-p1">Phase 1</div>
-      </div>
-      <div class="flow-row reveal">
-        <div class="flow-name">Post-Purchase — First Bottle<span>Triggered: first-ever order placed</span></div>
-        <div class="flow-desc">Celebrates the first pour. Confirms or prompts Legendary Club Wanderer enrollment. Delivers cocktail recipe content tied to their specific SKU. Introduces adjacent catalog spirits with pairing context. Plants the seed for Batch 003. 4 emails over 14 days with Stave balance inclusion throughout.</div>
-        <div class="flow-badge badge-p1">Phase 1</div>
-      </div>
-      <div class="flow-row reveal">
-        <div class="flow-name">Post-Purchase — Repeat Customer<span>Triggered: 2nd purchase onward</span></div>
-        <div class="flow-desc">Deepens the relationship. Acknowledges their loyalty and current chapter by name. Introduces unexplored catalog spirits with cocktail context. Includes current Stave balance with a "you're X Staves from your next reward" message. Prompts tour or tasting booking as a chapter-progression activity.</div>
-        <div class="flow-badge badge-p2">Phase 2</div>
-      </div>
-      <div class="flow-row reveal">
-        <div class="flow-name">Sunset<span>Triggered: no engagement in 180+ days</span></div>
-        <div class="flow-desc">A graceful last-chance exit. References the chapter the member achieved before going quiet. One final offer with urgency, then a clean suppression to protect deliverability. Non-members get a standard sunset; Legendary Club members get a chapter-aware farewell that leaves the door open.</div>
-        <div class="flow-badge badge-p2">Phase 2</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CAMPAIGNS -->
-  <section id="campaigns">
-    <div class="section-label reveal">Campaign Strategy</div>
-    <h2 class="section-h reveal">Consistent Sends.<br><em>Built for Spirits & Loyalty.</em></h2>
-    <p class="section-intro reveal">SFR's campaign calendar is built around the moments that drive action — limited releases, seasonal cocktail occasions, chapter milestones, gifting windows, and event bookings. Legendary Club chapter tier is a segmentation variable on every major campaign send.</p>
-
-    <div class="campaign-grid">
-      <div class="campaign-card c1 reveal">
-        <div class="camp-eyebrow">Tier 1 / Foundation</div>
-        <h3>1–2 Campaigns / Week</h3>
-        <div class="camp-rate">4–8 <span>/ month</span></div>
-        <p class="camp-desc">The baseline that keeps SFR top-of-mind and the Legendary Club feeling active between releases and events.</p>
-        <ul class="camp-features">
-          <li>New buyer vs. returning member split on every send</li>
-          <li>Chapter-tier segmentation on loyalty-focused sends</li>
-          <li>Engagement-tiered suppression from day one</li>
-          <li>Monthly campaign calendar approved by the 25th</li>
-          <li>Cocktail recipe content woven throughout</li>
-          <li>Monthly performance report + strategy call</li>
-        </ul>
-      </div>
-      <div class="campaign-card c2 reveal">
-        <div class="camp-eyebrow">Tier 2 / Growth</div>
-        <h3>3–5 Campaigns / Week</h3>
-        <div class="camp-rate">12–20 <span>/ month</span></div>
-        <p class="camp-desc">Full send frequency with segmentation by chapter tier, product line, purchase recency, and event attendance history.</p>
-        <ul class="camp-features">
-          <li>Everything in Tier 1</li>
-          <li>Chapter-segmented sends — Wanderer to Legend audiences treated as distinct</li>
-          <li>A/B testing on subject lines, CTAs, and timing</li>
-          <li>SMS campaigns alongside all major email sends</li>
-          <li>Full limited release drop campaign management (pre, launch, post)</li>
-          <li>Corporate event + tour booking sends</li>
-          <li>Bi-weekly strategy calls</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="highlight-box reveal">
-      <strong>Campaign themes built into the SFR calendar:</strong> Limited Release Drop sequences (Batch 003 and beyond), Cocktail Recipe seasonal content (summer, holiday, winter sips), Holiday Gifting Guide with spirit bundles and gift cards, New Year's cocktail kit promotion, Corporate Event and Tour booking sends, Chapter level-up celebration campaigns, Legendary Club member anniversary sends, Stave expiry "use your rewards" nudges, and "what's new in the vault" member-only newsletter. Every send is written in SFR's voice — bold, earned, and never discount-first.
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ROADMAP -->
-  <section id="roadmap">
-    <div class="section-label reveal">90-Day Roadmap</div>
-    <h2 class="section-h reveal">Built to Generate Revenue<br><em>in Week One.</em></h2>
-    <p class="section-intro reveal">Three phases. Loyalty flows are built first — because they generate the highest engagement data and seed the member intelligence that makes every other flow smarter. By Day 90, the Legendary Club has an engine and SFR has a retention program that runs without manual intervention.</p>
-
-    <div class="roadmap">
-      <div class="phase reveal">
-        <div class="phase-num">01</div>
-        <div class="phase-content">
-          <div class="phase-tag">Days 1–30 · Foundation</div>
-          <h3>Toki Integration Live, Priority Loyalty Flows Built & Campaigns Running</h3>
-          <div class="phase-items">
-            <div class="phase-item">Full Klaviyo account audit — flows, lists, segments, deliverability health</div>
-            <div class="phase-item">Toki ↔ Klaviyo integration confirmed — chapter data, Stave events, and redemption signals flowing as Klaviyo custom properties</div>
-            <div class="phase-item">Legendary Club welcome series built and live — 5 emails + 1 SMS, chapter narrative from email 1</div>
-            <div class="phase-item">Chapter level-up flow built and live — all 8 tiers mapped, email + SMS per advancement</div>
-            <div class="phase-item">Stave milestone + redemption nudge flow built and live — 3-stage sequence</div>
-            <div class="phase-item">Limited release drop sequence templated and standing by for Batch 003 launch</div>
-            <div class="phase-item">Browse, cart, and checkout abandonment flows built and live</div>
-            <div class="phase-item">Post-purchase (first bottle) flow built and live with Legendary Club enrollment CTA</div>
-            <div class="phase-item">Month 1 campaign calendar approved and first sends launched</div>
-          </div>
-        </div>
-      </div>
-      <div class="phase reveal">
-        <div class="phase-num">02</div>
-        <div class="phase-content">
-          <div class="phase-tag">Days 31–60 · Loyalty Activation</div>
-          <h3>Phase 2 Flows Live, Full Chapter Segmentation & Optimization Round 1</h3>
-          <div class="phase-items">
-            <div class="phase-item">Member anniversary flow built and live</div>
-            <div class="phase-item">First redemption celebration flow live</div>
-            <div class="phase-item">Dormant member reactivation flow live — chapter-aware copy throughout</div>
-            <div class="phase-item">Tasting room and event follow-up flow live — Stave award + next booking CTA</div>
-            <div class="phase-item">Post-purchase (repeat customer) flow live with chapter cross-reference and Stave balance inclusion</div>
-            <div class="phase-item">Full chapter-tier segmentation active on all campaign sends</div>
-            <div class="phase-item">Phase 1 flow optimization round 1 — timing, copy, subject lines reviewed</div>
-            <div class="phase-item">Month 1 performance report delivered — flow revenue, Stave redemption rate, chapter progression rate</div>
-          </div>
-        </div>
-      </div>
-      <div class="phase reveal">
-        <div class="phase-num">03</div>
-        <div class="phase-content">
-          <div class="phase-tag">Days 61–90 · Scale</div>
-          <h3>Full Engine Running — Test, Learn, Compound</h3>
-          <div class="phase-items">
-            <div class="phase-item">A/B testing running across top-performing loyalty flows and campaign sequences</div>
-            <div class="phase-item">Legendary Club cohort analysis — identifying highest-LTV chapter tiers and biggest drop-off points in the path</div>
-            <div class="phase-item">Stave redemption rate analysis — identifying friction in the rewards loop and adjusting nudge timing</div>
-            <div class="phase-item">Full system optimization: timing, send frequency, suppression, chapter segmentation logic</div>
-            <div class="phase-item">Month 2 performance report delivered</div>
-            <div class="phase-item">90-day retrospective + renewal scope delivered by Day 85</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
 
   <!-- PRICING -->
   <section id="pricing">
     <div class="section-label reveal">Investment</div>
-    <h2 class="section-h reveal">Three Tiers.<br><em>No Setup Fee. No Surprises.</em></h2>
-    <p class="section-intro reveal">A fixed monthly retainer covers everything — loyalty flows, retention flows, Toki integration work, campaigns, segmentation, reporting, and strategy. The Toki ↔ Klaviyo integration is included in all tiers. No per-send fees, no hidden add-ons.</p>
+    <h2 class="section-h reveal">Two Ways In.<br><em>Same 13 Flows Either Way.</em></h2>
+    <p class="section-intro reveal">The difference isn't what gets built — it's what happens after. Both options deliver the full 13-flow loyalty suite in 30 days. Option 1 ends there. Option 2 keeps DigitsUp on for 60 more days to monitor performance, optimize based on live data, and make sure the program is actually working before we hand it off.</p>
+
+    <div class="price-usd-note reveal">All prices in USD</div>
 
     <div class="pricing-wrap">
-      <div class="price-card reveal">
-        <div class="price-name">Tier 1</div>
-        <div class="price-tier">Loyalty Core</div>
-        <div class="price-val"><sup>$</sup>3,500<sub>/mo</sub></div>
-        <div class="price-note">$10,500 total &nbsp;·&nbsp; 90-day engagement</div>
-        <ul class="price-items">
-          <li>Toki ↔ Klaviyo integration setup & management</li>
-          <li>Legendary Club welcome series (5 email + SMS)</li>
-          <li>Chapter level-up flow — all 8 tiers</li>
-          <li>Stave milestone + redemption nudge flow</li>
-          <li>Core abandonment flows (browse, cart, checkout)</li>
-          <li>Post-purchase first buyer flow</li>
-          <li>1–2 campaigns/week (~4–8/month)</li>
-          <li>Monthly report + strategy call</li>
-          <li>No setup fee · 30-day cancel after Day 30</li>
-        </ul>
-      </div>
 
       <div class="price-card featured reveal">
-        <div class="price-badge">Most Popular</div>
-        <div class="price-name">Tier 2</div>
-        <div class="price-tier">Loyalty Growth</div>
-        <div class="price-val"><sup>$</sup>5,250<sub>/mo</sub></div>
-        <div class="price-note">$15,750 total &nbsp;·&nbsp; 90-day engagement</div>
+        <div class="price-badge">Clean Exit</div>
+        <div class="price-name">Option 1</div>
+        <div class="price-tier">One-Time Setup</div>
+        <div class="price-val"><sup>$</sup>4,250</div>
+        <div class="price-note">One payment &nbsp;·&nbsp; 30-day build &nbsp;·&nbsp; No ongoing commitment</div>
         <ul class="price-items">
-          <li>Everything in Tier 1</li>
-          <li>Member anniversary flow</li>
-          <li>First redemption celebration flow</li>
-          <li>Dormant member reactivation flow</li>
-          <li>Tasting room + event follow-up flow</li>
-          <li>Limited release drop sequence (all 3 phases)</li>
-          <li>Post-purchase repeat customer flow</li>
-          <li>3–5 campaigns/week (12–20/month)</li>
-          <li>Chapter-segmented sends on every campaign</li>
-          <li>SMS campaigns alongside all major sends</li>
-          <li>Bi-weekly strategy calls</li>
+          <li>Toki ↔ Klaviyo full integration setup</li>
+          <li>Legendary Club welcome series</li>
+          <li>Stave earned confirmation flow</li>
+          <li>Stave balance reminder flow</li>
+          <li>Stave expiry warning flow</li>
+          <li>Key & Collectible redemption reminder</li>
+          <li>Redemption confirmation & re-earn prompt</li>
+          <li>Chapter advancement flow — all 8 tiers, SMS + email</li>
+          <li>Approaching next chapter flow</li>
+          <li>Referral sent, completed & referred friend welcome (3 flows)</li>
+          <li>Wallet Pass flow — issuance + balance update branches</li>
+          <li>Dormant member win-back</li>
+          <li>Full QA, testing & handoff documentation</li>
+          <li>No retainer. No ongoing commitment. Yours to keep.</li>
         </ul>
       </div>
 
       <div class="price-card reveal">
-        <div class="price-name">Tier 3</div>
-        <div class="price-tier">Full Service</div>
-        <div class="price-val"><sup>$</sup>8,000<sub>/mo</sub></div>
-        <div class="price-note">$24,000 total &nbsp;·&nbsp; 90-day engagement</div>
+        <div class="price-save-badge">$2,100 less to get started</div>
+        <div class="price-name">Option 2</div>
+        <div class="price-tier">Setup + Maintenance</div>
+        <div class="price-val"><sup>$</sup>2,150</div>
+        <div class="price-then">then $635/mo &nbsp;·&nbsp; Months 2 & 3</div>
+        <div class="price-total-note">$3,420 USD total over 90 days</div>
+        <div style="height:16px;"></div>
         <ul class="price-items">
-          <li>Everything in Tier 2</li>
-          <li>All 13 flows built, managed & continuously optimized</li>
-          <li>A/B testing across all flows and campaigns</li>
-          <li>Corporate event + tour booking nurture sequence</li>
-          <li>Full sunset + suppression management</li>
-          <li>Priority 24hr turnaround on all deliverables</li>
-          <li>Weekly strategy calls</li>
-          <li>Dedicated Klaviyo account manager escalation access</li>
+          <li>Everything in Option 1 — same full 13-flow loyalty build, same 30-day delivery</li>
+          <li>$2,100 lower upfront cost to get started</li>
+          <li>Month 2 & 3: flow performance monitoring and optimization</li>
+          <li>Monthly analytics — open rates, click rates, flow revenue, Stave redemption rate, chapter progression velocity</li>
+          <li>Copy and timing adjustments based on live data</li>
+          <li>One strategy call per month</li>
+          <li>Priority response on any flow issues or Toki sync questions</li>
         </ul>
       </div>
+
     </div>
 
     <div class="guarantee reveal">
       <div class="g-icon">🥃</div>
       <div>
         <h3>Our Commitment to Results</h3>
-        <p>We operate as an extension of the SFR team. Every flow is built around the Legendary Club's chapter framework, SFR's brand voice, and your specific customer base. If Phase 1 loyalty flows aren't live within 30 days of receiving access and assets, we extend the engagement at no cost. No ambiguity on deliverables. No hidden add-ons. Legendary or nothing.</p>
+        <p>Same full loyalty build regardless of which option you choose. Every flow is built around the Legendary Club's chapter framework, SFR's brand voice, and your specific member base. If all 13 flows aren't built and live within 30 days of assets and access being confirmed at kickoff, we complete the full build at no additional charge. No ambiguity on deliverables. No hidden add-ons. Legendary or nothing.</p>
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- WHY DIGITSUP -->
+  <!-- DUAL ROADMAP -->
+  <section id="roadmap">
+    <div class="section-label reveal">Delivery Roadmap</div>
+    <h2 class="section-h reveal">Your Build Timeline.<br><em>Whichever Path You Choose.</em></h2>
+    <p class="section-intro reveal">Option 1 gets you fully live in 30 days — clean, complete, and handed off. Option 2 gives DigitsUp 90 days to build, monitor, and optimize with live data. Select your path below.</p>
+
+    <div class="reveal">
+      <div class="roadmap-tabs">
+        <button class="rtab active" onclick="switchRoadmap('r30')">Option 1 — 30 Days</button>
+        <button class="rtab" onclick="switchRoadmap('r90')">Option 2 — 90 Days</button>
+      </div>
+    </div>
+
+    <!-- 30-DAY ROADMAP -->
+    <div id="r30" class="roadmap-panel active">
+      <div class="roadmap-option-label">Option 1 · $4,250 One-Time · 30-Day Build</div>
+      <div class="phase reveal">
+        <div class="phase-num">W1</div>
+        <div class="phase-content">
+          <div class="phase-tag">Days 1–7 · Audit & Integration</div>
+          <h3>Klaviyo Audit, Toki Integration Confirmed & Architecture Mapped</h3>
+          <div class="phase-items">
+            <div class="phase-item">Full Klaviyo account audit — existing flows, lists, segments, and deliverability health reviewed</div>
+            <div class="phase-item">Toki ↔ Klaviyo integration live — chapter data, Stave balances, Key redemptions, and event attendance flowing as Klaviyo custom properties</div>
+            <div class="phase-item">Wallet Pass flow architecture confirmed and connected</div>
+            <div class="phase-item">Full flow build order confirmed and Week 2 scope locked</div>
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">W2</div>
+        <div class="phase-content">
+          <div class="phase-tag">Days 8–14 · Core Loyalty Flows</div>
+          <h3>Welcome Series, Chapter Level-Up & Stave Flows Built and Live</h3>
+          <div class="phase-items">
+            <div class="phase-item">Legendary Club welcome series live — 5 emails + 1 SMS, chapter narrative arc from email 1, purchase behavior exits at each step</div>
+            <div class="phase-item">Chapter level-up flow live — all 8 tiers, email + SMS per advancement, unique copy per chapter</div>
+            <div class="phase-item">Stave milestone nudge live — 3-stage sequence at 50%, 75%, and 100% threshold</div>
+            <div class="phase-item">Redemption reminder flow live — fires at 7 days unredeemed after hitting 100%</div>
+            <div class="phase-item">Points / Stave balance reminder flow live</div>
+            <div class="phase-item">Tier earned notification flow live</div>
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">W3</div>
+        <div class="phase-content">
+          <div class="phase-tag">Days 15–21 · Referral, Wallet Pass & Win-Back</div>
+          <h3>Referral Suite, Wallet Pass & Dormant Member Flow Built and Live</h3>
+          <div class="phase-items">
+            <div class="phase-item">Referral sent confirmation flow live</div>
+            <div class="phase-item">Referral completed flow live — referrer Stave award + re-earn prompt</div>
+            <div class="phase-item">Referred friend welcome flow live — distinct onboarding for referred members</div>
+            <div class="phase-item">Wallet Pass flow live — Branch 1 (pass issuance + install drive) and Branch 2 (balance/tier update push) tested on Apple and Google Wallet</div>
+            <div class="phase-item">Dormant member win-back flow built — chapter-aware copy, 3 emails + 1 SMS over 14 days</div>
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">W4</div>
+        <div class="phase-content">
+          <div class="phase-tag">Days 22–30 · QA, Testing & Handoff</div>
+          <h3>Full QA Pass, Live Testing & Complete Handoff Documentation</h3>
+          <div class="phase-items">
+            <div class="phase-item">All flows QA'd — trigger logic, filter conditions, suppression rules, send timing verified end-to-end</div>
+            <div class="phase-item">Toki event triggers tested live — chapter advancement, Stave events, and redemptions confirmed firing correctly into Klaviyo</div>
+            <div class="phase-item">Wallet Pass flow tested and confirmed on mobile</div>
+            <div class="phase-item">Full handoff documentation delivered — flow map, trigger logic guide, and Toki event reference for the SFR team</div>
+            <div class="phase-item">30-minute handoff call to walk through every flow, answer questions, and confirm SFR is fully equipped to manage independently</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 90-DAY ROADMAP -->
+    <div id="r90" class="roadmap-panel">
+      <div class="roadmap-option-label">Option 2 · $2,150 Month 1 · $635/mo Months 2 & 3</div>
+      <div class="phase reveal">
+        <div class="phase-num">01</div>
+        <div class="phase-content">
+          <div class="phase-tag">Days 1–30 · Full Loyalty Build</div>
+          <h3>All 13 Loyalty Flows Built, Tested & Live</h3>
+          <div class="phase-items">
+            <div class="phase-item">Toki ↔ Klaviyo integration live — chapter events, Stave balances, Key/Collectible redemptions, Wallet Pass all connected</div>
+            <div class="phase-item">Legendary Club welcome series live</div>
+            <div class="phase-item">Stave earned confirmation, balance reminder, and expiry warning flows live</div>
+            <div class="phase-item">Key & Collectible redemption reminder and redemption confirmation flows live</div>
+            <div class="phase-item">Chapter advancement flow live — all 8 tiers, SMS + email per advancement</div>
+            <div class="phase-item">Approaching next chapter flow live</div>
+            <div class="phase-item">Referral sent, referral completed, and referred friend welcome flows live</div>
+            <div class="phase-item">Wallet Pass flow live — issuance and balance update branches tested on mobile</div>
+            <div class="phase-item">Dormant member win-back flow live</div>
+            <div class="phase-item">Full QA pass — all 13 flows verified end-to-end</div>
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">02</div>
+        <div class="phase-content">
+          <div class="phase-tag">Days 31–60 · Monitor & Optimize</div>
+          <h3>Live Data Review, Flow Optimization Round 1 & Analytics Report</h3>
+          <div class="phase-items">
+            <div class="phase-item">30 days of live flow data reviewed — open rates, click rates, flow revenue, and conversion rates per flow</div>
+            <div class="phase-item">Stave redemption rate analysed — are members converting milestones into purchases? Friction points identified</div>
+            <div class="phase-item">Chapter progression velocity tracked — which tiers are seeing the most advancement, where members are dropping off</div>
+            <div class="phase-item">Optimization round 1 executed — subject line adjustments, timing refinements, copy tweaks based on real send data</div>
+            <div class="phase-item">Toki event sync verified — confirming all loyalty triggers are firing cleanly after 30 days of live member activity</div>
+            <div class="phase-item">Month 1 analytics report delivered — plain-language summary of what's working and what we're adjusting</div>
+            <div class="phase-item">Strategy call — 30-minute review of Month 1 findings and Month 2 optimization plan</div>
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">03</div>
+        <div class="phase-content">
+          <div class="phase-tag">Days 61–90 · Compound & Hand Off</div>
+          <h3>Optimization Round 2, Cohort Analysis & 90-Day Retrospective</h3>
+          <div class="phase-items">
+            <div class="phase-item">60 days of data applied — optimization round 2 executed across highest-traffic flows</div>
+            <div class="phase-item">Legendary Club cohort analysis — highest-LTV chapter tiers identified, drop-off points mapped</div>
+            <div class="phase-item">Stave redemption rate comparison — Month 1 vs Month 2, confirming nudge timing improvements are working</div>
+            <div class="phase-item">Minor copy and timing adjustments across any underperforming flows based on live send data</div>
+            <div class="phase-item">Month 2 analytics report delivered</div>
+            <div class="phase-item">90-day retrospective delivered by Day 85 — full performance summary, what was built, what improved, and a recommended next scope if SFR wants to continue</div>
+            <div class="phase-item">Final handoff call — SFR left with a fully optimized, documented loyalty engine and 90 days of performance data to build on</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
   <section id="why">
     <div class="section-label reveal">Why DigitsUp</div>
     <h2 class="section-h reveal">Klaviyo Platinum Partner.<br><em>Official Toki Partner.</em></h2>
@@ -753,13 +776,13 @@
       </div>
       <div class="why-card reveal">
         <span class="why-icon">🏃</span>
-        <h4>Loyalty Flows Live in Week One</h4>
-        <p>The welcome series and chapter level-up flows are prioritized first — because they carry the highest engagement rate and seed the member data that makes every other flow in the suite smarter from the start.</p>
+        <h4>Core Flows Live by Day 7</h4>
+        <p>The welcome series and chapter level-up flows are prioritized in Week 1 — highest engagement, most member-facing, and they seed the data that makes every subsequent flow in the build more precise from the moment it goes live.</p>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">📊</span>
         <h4>Revenue-First Reporting</h4>
-        <p>Every report ties back to dollars. Flow-attributed revenue, Stave redemption rate, chapter progression velocity, and campaign revenue per recipient. You always know what's working and exactly what to move next.</p>
+        <p>Every report ties back to dollars. Flow-attributed revenue, Stave redemption rate, chapter progression velocity, and flow revenue per recipient. You always know what's working and exactly what to move next.</p>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">🥃</span>
@@ -769,7 +792,7 @@
       <div class="why-card reveal">
         <span class="why-icon">🔁</span>
         <h4>Architecture That Compounds</h4>
-        <p>The loyalty flows, release sequences, and chapter segmentation we build in Month 1 get smarter in Month 3 — because every send builds member intelligence and every flow is connected to the same data layer.</p>
+        <p>The loyalty flows we build don't plateau — every member action feeds the data layer that makes future communications smarter. Chapter progression data, redemption behavior, and referral patterns all sharpen the program over time without rebuilding anything.</p>
       </div>
     </div>
   </section>
@@ -777,7 +800,7 @@
   <div class="cta-section">
     <div class="cta-bg"></div>
     <h2>Ready to Go<br><em>Legendary?</em></h2>
-    <p>Let's confirm access, get the Toki integration live, and have loyalty flows generating revenue within the first 30 days. Batch 003 won't launch itself.</p>
+    <p>Let's confirm scope, get aligned on the right option, and get the Legendary Club the retention engine it deserves. The program is already built — now let's make it work.</p>
     <div class="cta-buttons">
       <a href="mailto:michael@digitsup.com?subject=SFR%20Distillery%20%E2%80%94%20Let%27s%20Move%20Forward" class="btn-primary">Accept &amp; Move Forward</a>
       <a href="mailto:michael@digitsup.com?subject=SFR%20Distillery%20%E2%80%94%20Question" class="btn-ghost">Ask a Question</a>
@@ -792,6 +815,17 @@
 </div>
 
 <script>
+  function switchRoadmap(id) {
+    document.querySelectorAll('.roadmap-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    // re-trigger reveals on newly visible panel
+    document.querySelectorAll('#' + id + ' .reveal:not(.in)').forEach(el => {
+      setTimeout(() => el.classList.add('in'), 80);
+    });
+  }
+
   const PASS = 'SFR2026';
   function checkPass() {
     const val = document.getElementById('gate-input').value.trim().toUpperCase();
